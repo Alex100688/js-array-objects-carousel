@@ -36,27 +36,34 @@ const gameImmage= document.querySelector(".game-immage");
 const cards=document.querySelector(".cards")
 //creato il primo template per l'immagine più grande.//
 const templateGame= document.getElementById("template-game").content.cloneNode(true);
-console.log(templateGame);
 templateGame.querySelector("img").src = images[gameImageNumber].image;
 templateGame.querySelector(".game-immage-text h3").innerHTML = images[gameImageNumber].title;
 templateGame.querySelector(".game-immage-text p").innerHTML = images[gameImageNumber].text;
 gameImmage.append(templateGame);
-console.log(templateGame);
 //ciclo sulle immagini più piccole.//
 images.forEach((element, index) => {
     const templateCard=document.getElementById("template-card").content.cloneNode(true);
     if (index === gameImageNumber) {
        templateCard.querySelector(".card").classList.add("border");
     }
-    console.log(templateCard);
     templateCard.querySelector("img").src=element.image;
     cards.append(templateCard);
 }
 );
-
-const upCard=document.querySelector(".up-card");
-upCard.addEventListener('clic', function(){
-    document.querySelector(".card.border").classList.remove("border");
-    gameImageNumber++;
-
+const card=document.querySelectorAll(".card");
+const downCard=document.querySelector(".down-card");
+downCard.addEventListener('clic', function(){
+    card[gameImageNumber].classList.remove("border");
+    if (gameImageNumber > 0) {
+        gameImageNumber--;
+    }
+    else{
+        gameImageNumber=images.length - 1
+    };
+    card[gameImageNumber].classList.add("border");
+    gameImmage.querySelector("img").src = images[gameImageNumber].image;
+    gameImmage.querySelector(".game-immage-text h3").innerHTML = images[gameImageNumber].title;
+    gameImmage.querySelector(".game-immage-text p").innerHTML = images[gameImageNumber].text;
 })
+
+
