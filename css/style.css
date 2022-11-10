@@ -37,7 +37,7 @@ body{
 }
 .cards{
     width: 25%;
-    height: (100% / 5);
+    position: relative;
     
 }
 
@@ -49,4 +49,24 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.up-card, .down-card{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    z-index: 999;
+    cursor: pointer;
+    left: calc(50% - 1.0938rem);
+
+}
+
+.up-card{
+    top: .9375rem;
+}
+
+.down-card{
+    bottom: .9375rem;
 }
