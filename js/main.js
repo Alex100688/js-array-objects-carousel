@@ -52,18 +52,34 @@ images.forEach((element, index) => {
 );
 const card=document.querySelectorAll(".card");
 const downCard=document.querySelector(".down-card");
-downCard.addEventListener('clic', function(){
+downCard.addEventListener('click', function(){
     card[gameImageNumber].classList.remove("border");
-    if (gameImageNumber > 0) {
-        gameImageNumber--;
+    if (gameImageNumber < images.length - 1) {
+        gameImageNumber++;
     }
-    else{
-        gameImageNumber=images.length - 1
+    else{gameImageNumber=0;
+
     };
     card[gameImageNumber].classList.add("border");
     gameImmage.querySelector("img").src = images[gameImageNumber].image;
     gameImmage.querySelector(".game-immage-text h3").innerHTML = images[gameImageNumber].title;
-    gameImmage.querySelector(".game-immage-text p").innerHTML = images[gameImageNumber].text;
-})
+    gameImmage.querySelector(".game-immage-text p").innerHTML = images[gameImageNumber].text   
+});
+
+const upCard=document.querySelector(".up-card");
+upCard.addEventListener('click', function(){
+    card[gameImageNumber].classList.remove("border");
+    if (gameImageNumber > 0) {
+        gameImageNumber++;
+    }else{
+        gameImageNumber = images.length - 1;
+    }
+    card[gameImageNumber].classList.add("border");
+    gameImmage.querySelector("img").src = images[gameImageNumber].image;
+    gameImmage.querySelector(".game-immage-text h3").innerHTML = images[gameImageNumber].title;
+    gameImmage.querySelector(".game-immage-text p").innerHTML = images[gameImageNumber].text  
+ })
+    
+
 
 
