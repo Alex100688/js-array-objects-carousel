@@ -23,10 +23,18 @@ body{
 
 .game-immage{
     width: 70%;
-    height: 100%;
+    position: relative
     
 }
 
+.game-immage-text{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    padding: 22px;
+}
 .cards{
     width: 25%;
     height: (100% / 5);
