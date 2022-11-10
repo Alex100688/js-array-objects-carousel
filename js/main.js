@@ -32,8 +32,8 @@ const images = [
 //main carousell-js//
 
 let gameImageNumber= 0;
-
 const gameImmage= document.querySelector(".game-immage");
+const cards=document.querySelector(".cards")
 //creato il primo template per l'immagine più grande.//
 const templateGame= document.getElementById("template-game").content.cloneNode(true);
 console.log(templateGame);
@@ -44,5 +44,19 @@ gameImmage.append(templateGame);
 console.log(templateGame);
 //ciclo sulle immagini più piccole.//
 images.forEach((element, index) => {
-    
-});
+    const templateCard=document.getElementById("template-card").content.cloneNode(true);
+    if (index === gameImageNumber) {
+       templateCard.querySelector(".card").classList.add("border");
+    }
+    console.log(templateCard);
+    templateCard.querySelector("img").src=element.image;
+    cards.append(templateCard);
+}
+);
+
+const upCard=document.querySelector(".up-card");
+upCard.addEventListener('clic', function(){
+    document.querySelector(".card.border").classList.remove("border");
+    gameImageNumber++;
+
+})
