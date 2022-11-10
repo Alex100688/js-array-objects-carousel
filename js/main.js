@@ -43,3 +43,6 @@ templateGame.querySelector(".game-immage-text p").innerHTML = images[gameImageNu
 gameImmage.append(templateGame);
 console.log(templateGame);
 //ciclo sulle immagini più piccole.//
+images.forEach((element, index) => {
+    
+});
