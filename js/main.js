@@ -70,7 +70,7 @@ const upCard=document.querySelector(".up-card");
 upCard.addEventListener('click', function(){
     card[gameImageNumber].classList.remove("border");
     if (gameImageNumber > 0) {
-        gameImageNumber++;
+        gameImageNumber--;
     }else{
         gameImageNumber = images.length - 1;
     }
